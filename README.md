@@ -1,4 +1,4 @@
-#Virus Spread Simulation
+# Virus Spread Simulation
 Simple JavaFX application that creates a simulation for virus spreading rates.
 People here are represented with colored nodes depending on their health state.  
 
@@ -6,7 +6,7 @@ People here are represented with colored nodes depending on their health state.
 **Red** -- infected/ill  
 **Green** -- immuned/healed
 
-##Usage
+## Usage
 1. It is very important to press Reset button first to get simulation started, otherwise the pane will stay empty
 ![reset simulation](img/afterReset.PNG)
   
@@ -30,5 +30,5 @@ After some period of time all of the infected nodes will be immuned. That's wher
 5. And we're done! You can either close the window now or reset the simulation.
 ![ending simulation](img/endingSim.PNG)
 
-##Written in
+## Written in
 ![](img/java_icon.png)
