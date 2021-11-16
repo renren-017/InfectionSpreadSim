@@ -61,13 +61,6 @@
       </HBox>
    </bottom>
    <left>
-      <VBox prefHeight="200.0" prefWidth="210.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextArea prefHeight="322.0" prefWidth="186.0" text="1. First, you'll need to manually &#10;reset the canvas.&#10;&#10;2. Then, press either Start or &#10;Step to view the infection &#10;spread.&#10;&#10;3. If you want to stop the &#10;simulation, press Stop.&#10;&#10;Enter the number to a text field,&#10;then press ENTER and Reset to &#10;see the changes.&#10;Nodes' size can be changed&#10;while in simulation.&#10;&#10;Gray -- healthy&#10;Red -- infected&#10;Green -- immuned">
-               <VBox.margin>
-                  <Insets left="5.0" />
-               </VBox.margin></TextArea>
-         </children>
-      </VBox>
+      <TextArea prefHeight="200.0" prefWidth="200.0" text="1. First, you'll need to manually &#10;reset the canvas.&#10;&#10;2. Then, press either Start or &#10;Step to view the infection &#10;spread.&#10;&#10;3. If you want to stop the &#10;simulation, press Stop.&#10;&#10;Enter the number to a text field,&#10;then press ENTER and Reset to &#10;see the changes.&#10;Nodes' size can be changed&#10;while in simulation.&#10;&#10;Gray -- healthy&#10;Red -- infected&#10;Green -- immuned" BorderPane.alignment="CENTER" />
    </left>
 </BorderPane>
