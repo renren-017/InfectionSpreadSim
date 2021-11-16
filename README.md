@@ -11,8 +11,7 @@ People here are represented with colored nodes depending on their health state.
 ![reset simulation](img/afterReset.PNG)
   
 
-2. Now you can type preferable number [positive integer, of course] of nodes you want to see on a pane into a small text window. Make sure to press **Enter,** so that the program gets the input.  
-And **Reset!**
+2. Now you can type preferable number [positive integer, of course] of nodes you want to see on a pane into a small text window. Make sure to press **Enter,** so that the program gets the input. And **Reset!**
 ![entering count](img/enteringCount.PNG)
   
 
