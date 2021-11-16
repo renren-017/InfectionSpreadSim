@@ -8,7 +8,7 @@
    <top>
       <Label text="Infection Spread Simulator" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets bottom="5.0" />
+            <Insets bottom="10.0" />
          </BorderPane.margin></Label>
    </top>
    <center>
@@ -20,28 +20,29 @@
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#reset" text="Reset">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#reset" text="Reset">
                <HBox.margin>
-                  <Insets bottom="10.0" left="15.0" right="15.0" />
+                  <Insets bottom="10.0" left="5.0" right="15.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="StartButton" mnemonicParsing="false" onAction="#start" text="Start">
-               <HBox.margin>
-                  <Insets bottom="10.0" right="15.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="StopButton" mnemonicParsing="false" onAction="#stop" text="Stop">
+            <Button fx:id="StartButton" alignment="CENTER" mnemonicParsing="false" onAction="#start" text="Start">
                <HBox.margin>
                   <Insets bottom="10.0" right="15.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="StepButton" mnemonicParsing="false" onAction="#step" text="Step">
+            <Button fx:id="StopButton" alignment="CENTER" mnemonicParsing="false" onAction="#stop" text="Stop">
                <HBox.margin>
                   <Insets bottom="10.0" right="15.0" />
                </HBox.margin>
             </Button>
-            <VBox prefHeight="50.0" prefWidth="140.0">
+            <Button fx:id="StepButton" alignment="CENTER" mnemonicParsing="false" onAction="#step" text="Step">
+               <HBox.margin>
+                  <Insets bottom="10.0" right="15.0" />
+               </HBox.margin>
+            </Button>
+            <VBox prefHeight="50.0" prefWidth="160.0">
                <children>
+                  <Label text="Enter the number of nodes" />
                   <TextField fx:id="countInput" onAction="#onEnter" />
                </children></VBox>
             <VBox prefHeight="36.0" prefWidth="150.0">
@@ -50,7 +51,7 @@
                   <Slider fx:id="sizeSlider" majorTickUnit="2.0" max="10.0" min="4.0" prefHeight="33.0" prefWidth="168.0" showTickLabels="true" />
                </children>
                <HBox.margin>
-                  <Insets left="5.0" right="10.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </VBox>
          </children>
@@ -59,4 +60,14 @@
          </padding>
       </HBox>
    </bottom>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="210.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea prefHeight="322.0" prefWidth="186.0" text="1. First, you'll need to manually &#10;reset the canvas.&#10;&#10;2. Then, press either Start or &#10;Step to view the infection &#10;spread.&#10;&#10;3. If you want to stop the &#10;simulation, press Stop.&#10;&#10;Enter the number to a text field,&#10;then press ENTER and Reset to &#10;see the changes.&#10;Nodes' size can be changed&#10;while in simulation.&#10;&#10;Gray -- healthy&#10;Red -- infected&#10;Green -- immuned">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin></TextArea>
+         </children>
+      </VBox>
+   </left>
 </BorderPane>
