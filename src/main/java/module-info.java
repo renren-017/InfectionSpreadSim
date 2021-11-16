@@ -1,6 +1,7 @@
 module com.example.physicslab {
     requires javafx.controls;
     requires javafx.fxml;
-    exports simulator;
+    requires javafx.graphics;
+
     opens simulator;
 }
