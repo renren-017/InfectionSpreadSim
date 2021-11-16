@@ -1,23 +1,18 @@
 package simulator;
 
 import javafx.animation.AnimationTimer;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import simulator.model.Person;
 import simulator.model.Simulation;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 public class Controller {
 
     Simulation sim;
     private Movement clock;
-    private int count;
+    private int count = 5;
 
     @FXML
     Pane environment;
@@ -39,30 +34,36 @@ public class Controller {
 
     @FXML
     public void Initialize() {
-        sizeSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                setSize();
-            }
-        });
+        sizeSlider.valueProperty().addListener((observableValue, number, t1) -> setSize());
+    }
 
-        countInput.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                setCount();
-            }
-        });
+    @FXML
+    public void onEnter(ActionEvent event){
+        try{
+            String str = countInput.getText();
+            count = Integer.parseInt(str);
+            sim.draw();
+
+        }
+        catch (NumberFormatException ex){
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Input not valid");
+            errorAlert.setContentText("Input should be a positive integer value");
+            errorAlert.showAndWait();
+        }
     }
 
     @FXML
     public void start() {
         clock = new Movement();
         clock.start();
+        disableBtn(false, false, true);
     }
 
     @FXML
     public void stop() {
         clock.stop();
+        disableBtn(false, true, false);
     }
 
     @FXML
@@ -72,6 +73,7 @@ public class Controller {
         environment.getChildren().clear();
         sim = new Simulation(environment, count);
         Initialize();
+        disableBtn(false, true, false);
     }
 
     @FXML
@@ -86,23 +88,6 @@ public class Controller {
     public void setSize() {
         Person.rad = (int)sizeSlider.getValue();
         sim.draw();
-    }
-
-    @FXML
-    public void setCount() {
-        String str = countInput.getText();
-        System.out.println("sjk");
-        try{
-            int number = Integer.parseInt(str);
-            count = number;
-            sim.draw();
-        }
-        catch (NumberFormatException ex){
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setHeaderText("Input not valid");
-            errorAlert.setContentText("Input should be a positive integer value");
-            errorAlert.showAndWait();
-        }
     }
 
     private class Movement extends AnimationTimer {

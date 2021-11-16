@@ -42,7 +42,7 @@
             </Button>
             <VBox prefHeight="50.0" prefWidth="140.0">
                <children>
-                  <TextField fx:id="countInput" />
+                  <TextField fx:id="countInput" onAction="#onEnter" />
                </children></VBox>
             <VBox prefHeight="36.0" prefWidth="150.0">
                <children>
