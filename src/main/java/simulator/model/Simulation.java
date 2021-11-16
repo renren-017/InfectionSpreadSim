@@ -48,5 +48,4 @@ public class Simulation {
             ani.draw();
         }
     }
-
 }

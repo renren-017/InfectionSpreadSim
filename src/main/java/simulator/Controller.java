@@ -1,15 +1,23 @@
 package simulator;
 
 import javafx.animation.AnimationTimer;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import simulator.model.Person;
 import simulator.model.Simulation;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class Controller {
 
     Simulation sim;
     private Movement clock;
+    private int count;
 
     @FXML
     Pane environment;
@@ -24,7 +32,26 @@ public class Controller {
     Button StepButton;
 
     @FXML
+    Slider sizeSlider;
+
+    @FXML
+    TextField countInput;
+
+    @FXML
     public void Initialize() {
+        sizeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                setSize();
+            }
+        });
+
+        countInput.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                setCount();
+            }
+        });
     }
 
     @FXML
@@ -43,7 +70,8 @@ public class Controller {
         clock = new Movement();
         clock.stop();
         environment.getChildren().clear();
-        sim = new Simulation(environment, 150);
+        sim = new Simulation(environment, count);
+        Initialize();
     }
 
     @FXML
@@ -52,6 +80,29 @@ public class Controller {
         sim.heal();
         sim.infectionSpread();
         sim.draw();
+    }
+
+    @FXML
+    public void setSize() {
+        Person.rad = (int)sizeSlider.getValue();
+        sim.draw();
+    }
+
+    @FXML
+    public void setCount() {
+        String str = countInput.getText();
+        System.out.println("sjk");
+        try{
+            int number = Integer.parseInt(str);
+            count = number;
+            sim.draw();
+        }
+        catch (NumberFormatException ex){
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Input not valid");
+            errorAlert.setContentText("Input should be a positive integer value");
+            errorAlert.showAndWait();
+        }
     }
 
     private class Movement extends AnimationTimer {

@@ -40,7 +40,23 @@
                   <Insets bottom="10.0" right="15.0" />
                </HBox.margin>
             </Button>
+            <VBox prefHeight="50.0" prefWidth="140.0">
+               <children>
+                  <TextField fx:id="countInput" />
+               </children></VBox>
+            <VBox prefHeight="36.0" prefWidth="150.0">
+               <children>
+                  <Label text="Nodes' size" />
+                  <Slider fx:id="sizeSlider" majorTickUnit="2.0" max="10.0" min="4.0" prefHeight="33.0" prefWidth="168.0" showTickLabels="true" />
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" right="10.0" />
+               </HBox.margin>
+            </VBox>
          </children>
+         <padding>
+            <Insets top="8.0" />
+         </padding>
       </HBox>
    </bottom>
 </BorderPane>
