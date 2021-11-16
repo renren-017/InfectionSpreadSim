@@ -2,6 +2,7 @@ package simulator;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -18,6 +19,7 @@ public class simulator extends Application {
         FXMLLoader loader = new FXMLLoader();
         BorderPane root = loader.load(Objects.requireNonNull(getClass().getResource("Simulation.fxml")).openStream());
         stage.setScene(new Scene(root));
+        stage.getIcons().add(new Image("file:favicon.png"));
         stage.show();
     }
 
